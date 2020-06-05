@@ -35,8 +35,20 @@ jobs:
   
 -name: install surge
 run: npm install --global surge
- -name: Deploy Surge
-  run:surge ./ project003 zeeshan.surge.su ${{secrets.SURGE_TOKEN}}
+
+- name: Deploy Surge
+  uses: yg/deploy-surge@v1.0.1
+  with:
+    # The authentication token for Surge
+    SURGE_TOKEN:${{secrets.SURGE_TOKEN}} # default is 
+    # The domain name in which you want to deploy, if empty random name will be generated
+    DOMAIN_NAME: surge ./ bootcamp9266.surge.sh # optional, default is 
+    # Build directory in which you want to deploy
+    BUILD_DIRECTORY: # optional, default is build
+        
+        
+        -name:  Deploy using Surge
+   run:sun: surge ./ bootcamp9266.surge.sh 
 
     
 
