@@ -41,7 +41,7 @@ jobs:
         
         
     - name:  Deploy using Surge
-      run: surge ./ bootcamp9266.surge.sh --token ${{secerts.SURGE_TOKEN}}
+      run: surge ./ Project_002.surge.sh --token ${{secerts.SURGE_TOKEN}}
 
     
 
