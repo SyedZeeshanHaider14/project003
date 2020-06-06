@@ -22,33 +22,26 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
       
-    -name: install node JS
-    uses: actions/setup-node@v2-beta
-    with:
+    - name: install node JS
+      uses: actions/setup-node@v2-beta
+      with:
           node-version: 12  
-    -uses: borales/actions-yarn@v2.0.0
-  with: 
-      cmd: install # will run `yarn install` command
-  -name: Build React App
-  run: yarn build
+    - uses: borales/actions-yarn@v2.0.0
+      with: 
+        cmd: install # will run `yarn install` command
+    - name: Build React App
+      run: yarn build
 
   
--name: install surge
-run: npm install --global surge
+    - name: install surge
+      run: npm install --global surge
 
-- name: Deploy Surge
-  uses: yg/deploy-surge@v1.0.1
-  with:
-    # The authentication token for Surge
-    SURGE_TOKEN:${{secrets.SURGE_TOKEN}} # default is 
-    # The domain name in which you want to deploy, if empty random name will be generated
-    DOMAIN_NAME: surge ./ bootcamp9266.surge.sh # optional, default is 
-    # Build directory in which you want to deploy
-    BUILD_DIRECTORY: # optional, default is build
+ 
+
         
         
-        -name:  Deploy using Surge
-   run:sun: surge ./ bootcamp9266.surge.sh 
+    - name:  Deploy using Surge
+      run: surge ./ bootcamp9266.surge.sh --token ${{secerts.SURGE_TOKEN}}
 
     
 
